@@ -116,3 +116,15 @@ footer {
 #themeToggle:hover {
     opacity: 0.9;
 }
+
+.blog-title {
+    text-decoration: none;
+    color: inherit;  /* This will use the parent element's text color */
+    cursor: pointer;
+}
+
+/* Optional: if you want to prevent any hover effects */
+.blog-title:hover {
+    text-decoration: none;
+    color: inherit;
+}
