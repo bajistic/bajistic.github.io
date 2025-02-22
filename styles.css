@@ -1,47 +1,118 @@
+/* Default to light theme, unless system prefers dark */
+:root {
+    --background-color: #ffffff;
+    --text-color: #333;
+    --heading-color: #222;
+    --link-color: #0066cc;
+    --link-hover-color: #0056b3;
+    --secondary-text: #666;
+}
+
+/* Auto-adapt to system dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #1a1a1a;
+        --text-color: #e0e0e0;
+        --heading-color: #ffffff;
+        --link-color: #66b3ff;
+        --link-hover-color: #99ccff;
+        --secondary-text: #b0b0b0;
+    }
+}
+
+/* Manual override: Light mode */
+[data-theme="light"] {
+    --background-color: #ffffff;
+    --text-color: #333;
+    --heading-color: #222;
+    --link-color: #0066cc;
+    --link-hover-color: #0056b3;
+    --secondary-text: #666;
+}
+
+/* Manual override: Dark mode */
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --link-color: #66b3ff;
+    --link-hover-color: #99ccff;
+    --secondary-text: #b0b0b0;
+}
+
+/* Apply variables to styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 header {
     text-align: center;
     padding-bottom: 20px;
 }
+
 nav a {
     margin: 0 10px;
     text-decoration: none;
-    color: #0066cc;
+    color: var(--link-color);
 }
+
 nav a:hover {
     text-decoration: underline;
+    color: var(--link-hover-color);
 }
+
 main {
     max-width: 700px;
     margin: 0 auto;
 }
-h2 {
-    color: #222;
+
+h2, .post-preview h3 {
+    color: var(--heading-color);
 }
+
 .post-list {
     margin-top: 20px;
 }
+
 .post-preview {
     margin-bottom: 20px;
 }
+
 .post-preview h3 {
     margin: 0;
 }
+
 .post-preview p {
     margin: 5px 0;
 }
+
 small {
-    color: #666;
+    color: var(--secondary-text);
 }
+
 footer {
     text-align: center;
     padding-top: 20px;
-    color: #666;
+    color: var(--secondary-text);
     font-size: 0.9em;
+}
+
+#themeToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: underline;
+}
+
+#themeToggle:hover {
+    opacity: 0.9;
 }
