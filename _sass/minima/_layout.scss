@@ -31,6 +31,7 @@
 .site-nav {
   float: right;
   line-height: $base-line-height * $base-font-size * 2.25;
+  padding-right: $spacing-unit * 0.5;
 
   .nav-trigger {
       display: none;
