@@ -4,6 +4,6 @@ title: Projects
 permalink: /projects/
 ---
 
-I run a creative agency based in Zurich, Switzerland.
-Check it out at:
-[Gestalt7000](https://gestalt7k.com)
+Creative agency based in Zurich, Switzerland [Gestalt7000](https://gestalt7k.com)
+
+AI powered companion to land your dream job [ZapJob](https://zapjob.ch)
