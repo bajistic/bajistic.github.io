@@ -241,6 +241,16 @@
   }
 }
 
+.post.h-entry {
+  padding-left: $spacing-unit * 0.5;
+  padding-right: $spacing-unit * 0.5;
+}
+
+article.post {
+  padding-left: $spacing-unit * 0.5;
+  padding-right: $spacing-unit * 0.5;
+}
+
 .post-content {
   margin-bottom: $spacing-unit * 1.5;
   
