@@ -19,6 +19,8 @@
   letter-spacing: -0.5px;
   margin-bottom: 0;
   float: left;
+  padding-left: $spacing-unit * 0.5;
+
 
   &,
   &:visited {
@@ -102,6 +104,10 @@
   }
 }
 
+.home {
+  padding-left: $spacing-unit * 0.5;
+  padding-right: $spacing-unit * 0.5;
+}
 
 
 /**
