@@ -36,10 +36,23 @@ sass:
   style: compressed
 plugins:
   - jekyll-feed
-  - jekyll-picture-tag 
+
+markdown: kramdown
+kramdown:
+  input: GFM  # GitHub-Flavored Markdown
+  hard_wrap: false
 
 # Google Analytics
 google_analytics: G-7JGDQ3F936
+
+img_presets:
+  default:
+    - 400
+    - 800
+    - 1200
+  thumbnail:
+    - 200
+    - 300
 
 # Exclude from processing.
 # The following items will not be processed, by default.
