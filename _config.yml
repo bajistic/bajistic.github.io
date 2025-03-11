@@ -22,7 +22,7 @@ title: Bayarbileg
 email: bbayarbileg@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   navigating latent landscapes. techno-optimist building AI systems.
-  life, entrepreneurship, wealth-building, philosophy.
+  life, entrepreneurship, wealth-building, philosophy. anything i write here is obviously my own opinion  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://bayarbileg.xyz" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: bazinga970
@@ -36,6 +36,7 @@ sass:
   style: compressed
 plugins:
   - jekyll-feed
+  - jekyll-picture-tag 
 
 # Google Analytics
 google_analytics: G-7JGDQ3F936
