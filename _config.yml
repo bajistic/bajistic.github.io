@@ -36,6 +36,8 @@ sass:
   style: compressed
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 markdown: kramdown
 kramdown:
