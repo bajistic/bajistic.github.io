@@ -212,12 +212,16 @@
 
 .post-link {
   display: block;
-  @include relative-font-size(1.35);
-  font-weight: 600;
-  margin-bottom: $spacing-unit * 0.25;
-  
+  @include relative-font-size(2.4);
+  font-weight: 700;
+  margin-bottom: $spacing-unit;
+
   &:hover {
     text-decoration: none;
+  }
+
+  @include media-query($on-laptop) {
+    @include relative-font-size(2.1);
   }
 }
 
@@ -227,7 +231,7 @@
  * Posts
  */
 .post-header {
-  margin-bottom: $spacing-unit * 1.5;
+  margin-bottom: $spacing-unit;
 }
 
 .post-title {
@@ -261,7 +265,7 @@ article.post {
 
   h2 {
     @include relative-font-size(2);
-    margin-top: $spacing-unit * 1.5;
+    margin-top: $spacing-unit;
     margin-bottom: $spacing-unit * 0.5;
     font-weight: 600;
 
