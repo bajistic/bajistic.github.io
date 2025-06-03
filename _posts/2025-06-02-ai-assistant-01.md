@@ -19,7 +19,7 @@ It’s not truly “super,” but compared to doing everything manually, it does
 - **Personal finances:** Can access and update my personal finances database.
 
 <video width="640" height="360" controls>
-  <source src="/assets/videos/gcalvid_compressed.MP4" type="video/mp4">
+  <source src="/assets/videos/gcal_h264.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
