@@ -18,8 +18,12 @@ It’s not truly “super,” but compared to doing everything manually, it does
 - **Cover letter generator:** I input a job ad, it generates a cover letter for me in my own style.
 - **Personal finances:** Can access and update my personal finances database.
 
-<video width="640" height="360" controls>
+<video width="360" height="640" controls>
   <source src="/assets/videos/gcal_h264.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<video width="360" height="640" controls>
+  <source src="/assets/videos/letter_h264.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 

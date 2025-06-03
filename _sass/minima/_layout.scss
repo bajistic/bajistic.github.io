@@ -285,4 +285,12 @@ article.post {
       @include relative-font-size(1.125);
     }
   }
+
+  video,
+  iframe {
+    display: block;
+    margin: $spacing-unit auto;
+    max-width: 100%;
+    height: auto;
+  }
 }
