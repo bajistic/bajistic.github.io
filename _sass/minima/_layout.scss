@@ -5,8 +5,8 @@
   /* border-top: 5px solid $grey-color-dark; */
   border-bottom: none;
   min-height: $spacing-unit * 1.865;
-  padding-top: $spacing-unit;
-  margin-top: $spacing-unit * 0.5;
+  padding-top: $spacing-unit * 0.5;
+  margin-top: $spacing-unit * 0.2;
 
   // Positioning context for the mobile navigation icon
   position: relative;
@@ -179,8 +179,6 @@
   }
 }
 
-
-
 /**
  * Page content
  */
@@ -211,10 +209,13 @@
 }
 
 .post-link {
+  @include relative-font-size(2);
   display: block;
-  @include relative-font-size(2.4);
+  line-height: 1.2;
   font-weight: 700;
+  margin-top: $spacing-unit * 0.3;
   margin-bottom: $spacing-unit;
+
 
   &:hover {
     text-decoration: none;
@@ -236,10 +237,9 @@
 
 .post-title {
   @include relative-font-size(2.4);
-  letter-spacing: -0.02em;
+  // letter-spacing: -0.02em;
   line-height: 1.2;
   font-weight: 700;
-  margin-top: $spacing-unit;
 
   @include media-query($on-laptop) {
     @include relative-font-size(2.1);

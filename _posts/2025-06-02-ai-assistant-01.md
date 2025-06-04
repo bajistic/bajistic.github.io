@@ -5,8 +5,6 @@ date:   2025-05-29 10:00:00 +0100
 categories: assistant ai
 ---
 
-## Progress So Far
-
 I’m working on what I call my "super assistant." I don’t have the skills or resources to build a real AI, but with the tools I do have, I’ve made something that I’m actually proud of.
 
 It’s not truly “super,” but compared to doing everything manually, it does enough. Maybe it looks basic to someone working with advanced AI, but for me, it’s a big step.
@@ -37,8 +35,6 @@ It’s not truly “super,” but compared to doing everything manually, it does
 
 I want a general assistant that feels close to AGI—something that just handles all the routine stuff, so I don’t have to.
 
----
 
 As a non-software person, seeing what's possible with AI tools just gets me more excited. The "super assistant" may not be AGI-level (yet 😅), but it’s already saving me time and sanity, and that’s a win.
 
----
