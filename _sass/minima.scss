@@ -161,9 +161,14 @@ body.dark {
   .site-nav {
     background-color: #121212;
     border-color: #3a3a3a;
-    
+
     .menu-icon > svg path {
       fill: #f0f0f0;
+    }
+
+    .nav-list {
+      background-color: #121212;
+      border-color: #3a3a3a;
     }
   }
   
