@@ -7,16 +7,18 @@ categories: assistant ai
 
 i've been building my own ai assistant on and off for a month now.
 
-> learning and applying random knowledge is super easy with ai these days.  
-> you really don’t need to be a pro at any specific software—just understanding the basics of good software is enough.  
-> honestly, you can get away with not knowing some things, because the ai usually overdelivers when you prompt it.
-> the key is just having a sense of what you know vs. what you don’t.
-
 right now, like 90% of everything is ai-generated code.  
 another 9% is me refactoring or cleaning up that code.  
 maybe 1% is handwritten by me.
 
 some stuff is probably faster to just do by hand, but having an ai bang it all out at typing speed is just awesome.
+
+<img src="/assets/images/tonystark-jarvis.GIF" width="300" alt="Tony Stark and JARVIS" style="display: block; margin: 0 auto;">
+
+> learning and applying random knowledge is super easy with ai these days.  
+> you really don’t need to be a pro at any specific software—just understanding the basics of good software is enough.  
+> honestly, you can get away with not knowing some things, because the ai usually overdelivers when you prompt it.
+> the key is just having a sense of what you know vs. what you don’t.
 
 ## what it can do
 
