@@ -5,16 +5,32 @@ document.addEventListener("DOMContentLoaded", () => {
   toggle.className = "theme-toggle";
   document.body.appendChild(toggle);
   
-  // Check for saved theme in cookies or system preference
+  // Initialize theme based on saved cookie or system preference
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   const savedTheme = getCookie("theme");
-  if (savedTheme === "dark" || (savedTheme === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+  } else if (savedTheme === "light") {
+    document.body.classList.remove("dark");
+  } else if (mediaQuery.matches) {
     document.body.classList.add("dark");
   }
   
   // Handle theme toggle click
   toggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    document.cookie = "theme=" + (document.body.classList.contains("dark") ? "dark" : "light");
+    const isDark = document.body.classList.toggle("dark");
+    document.cookie = "theme=" + (isDark ? "dark" : "light");
+  });
+
+  // If no user-saved theme, listen for system theme changes
+  mediaQuery.addEventListener("change", (e) => {
+    if (getCookie("theme") === null) {
+      if (e.matches) {
+        document.body.classList.add("dark");
+      } else {
+        document.body.classList.remove("dark");
+      }
+    }
   });
   
   // GSAP animation for posts and post list items
