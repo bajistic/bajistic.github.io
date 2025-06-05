@@ -18,8 +18,6 @@ maybe 1% is handwritten by me.
 
 some stuff is probably faster to just do by hand, but having an ai bang it all out at typing speed is just awesome.
 
----
-
 ## what it can do
 
 - **gmail:** reads and writes my emails (could be risky if i’m not careful 🙃)
@@ -42,30 +40,22 @@ some stuff is probably faster to just do by hand, but having an ai bang it all o
   </video>
 </div>
 
----
-
 ## next up
 
 - actually link the apps together for “real” integration, not just doing tasks separately.
   maybe start with automating something like tax declaration.
 - scan my inbox for important mails and actually handle follow-up: schedule invoices, catch errors, handle small admin tasks, ask for clarifications, etc.
 
----
-
 ## the goal
 
 - deal with invoices and boring, repeating stuff like bills and renewals.
 - make reminders smarter (right now they’re pretty basic).
-
----
 
 ## the stack
 
 - node server running on a raspberry pi
 - connects to openai api
 - uses google docs + calendar apis
-
----
 
 ## privacy notes
 
