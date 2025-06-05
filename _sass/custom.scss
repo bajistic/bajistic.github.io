@@ -1,0 +1,24 @@
+.video-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.centered-video {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  background-color: #000; /* Black background for video player */
+}
+
+/* Ensure poster image is visible */
+.centered-video[poster] {
+  object-fit: cover; /* Ensures poster fills the video area */
+}
+
+/* Optional: Add a subtle border or shadow for visual appeal */
+.centered-video {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
