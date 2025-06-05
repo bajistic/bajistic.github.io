@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   toggle.className = "theme-toggle";
   document.body.appendChild(toggle);
   
-  // Initialize theme based on saved cookie or system preference
   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   const savedTheme = getCookie("theme");
   if (savedTheme === "dark") {
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.cookie = "theme=" + (isDark ? "dark" : "light");
   });
 
-  // If no user-saved theme, listen for system theme changes
   mediaQuery.addEventListener("change", (e) => {
     if (getCookie("theme") === null) {
       if (e.matches) {
