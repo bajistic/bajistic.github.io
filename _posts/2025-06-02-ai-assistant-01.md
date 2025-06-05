@@ -5,16 +5,29 @@ date:   2025-05-29 10:00:00 +0100
 categories: assistant ai
 ---
 
-I’m working on what I call my "super assistant." I don’t have the skills or resources to build a real AI, but with the tools I do have, I’ve made something that I’m actually proud of.
+i've been building my own ai assistant on and off for a month now.
 
-It’s not truly “super,” but compared to doing everything manually, it does enough. Maybe it looks basic to someone working with advanced AI, but for me, it’s a big step.
+> learning and applying random knowledge is super easy with ai these days.  
+> you really don’t need to be a pro at any specific software—just understanding the basics of good software is enough.  
+> honestly, you can get away with not knowing some things, because the ai usually overdelivers when you prompt it.
+> the key is just having a sense of what you know vs. what you don’t.
 
-### Capabilities
+right now, like 90% of everything is ai-generated code.  
+another 9% is me refactoring or cleaning up that code.  
+maybe 1% is handwritten by me.
 
-- **Calendar:** Can write entries to my Google Calendar. I just say my schedule (“Next week Monday, Tuesday, and Saturday from 14:30 to 00:15”) and it creates those events in bulk.
-- **Todo app:** Integrates with Things. I can add or modify tasks by telling it.
-- **Cover letter generator:** I input a job ad, it generates a cover letter for me in my own style.
-- **Personal finances:** Can access and update my personal finances database.
+some stuff is probably faster to just do by hand, but having an ai bang it all out at typing speed is just awesome.
+
+---
+
+## what it can do
+
+- **gmail:** reads and writes my emails (could be risky if i’m not careful 🙃)
+- **calendar:** creates google calendar events for me—i just say stuff like “next week monday, tuesday, and saturday from 14:30 to 00:15” and it adds them all.
+- **todo app:** hooks into things for adding and editing tasks the lazy way (by talking).
+- **cover letter generator:** throw it a job ad and it whips up a cover letter in google docs, using my own style, past references, cv, etc.
+- **personal finances:** tracks and updates my finances with its own little database.
+- **transaction tracking:** i send a receipt photo and it parses out items and the payment total.
 
 <div class="video-container">
   <video width="360" height="640" controls class="centered-video" poster="/assets/videos/gcal_h264_thumbnail.jpg">
@@ -29,16 +42,32 @@ It’s not truly “super,” but compared to doing everything manually, it does
   </video>
 </div>
 
-### Next Steps
+---
 
-- Link different apps together for actual integration (not just separate tasks).
-- Handle invoices and manage boring, recurring tasks like bill payments and renewals.
-- Smarter reminder options.
+## next up
 
-## The Goal
+- actually link the apps together for “real” integration, not just doing tasks separately.
+  maybe start with automating something like tax declaration.
+- scan my inbox for important mails and actually handle follow-up: schedule invoices, catch errors, handle small admin tasks, ask for clarifications, etc.
 
-I want a general assistant that feels close to AGI—something that just handles all the routine stuff, so I don’t have to.
+---
 
+## the goal
 
-As a non-software person, seeing what's possible with AI tools just gets me more excited. The "super assistant" may not be AGI-level (yet 😅), but it’s already saving me time and sanity, and that’s a win.
+- deal with invoices and boring, repeating stuff like bills and renewals.
+- make reminders smarter (right now they’re pretty basic).
+
+---
+
+## the stack
+
+- node server running on a raspberry pi
+- connects to openai api
+- uses google docs + calendar apis
+
+---
+
+## privacy notes
+
+- uses telegram api, openai api, so there are obviously privacy risks to consider. but openai probably has all my data so whatever
 
