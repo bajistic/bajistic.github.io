@@ -31,25 +31,82 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Music toggle button
   const musicToggle = document.createElement("button");
-  musicToggle.textContent = "Toggle Music";
   musicToggle.className = "music-toggle";
   document.body.appendChild(musicToggle);
 
-  // Music player container with YouTube playlist embed
+  const ytPlayerContainer = document.createElement("div");
+  ytPlayerContainer.id = "youtube-player";
+  ytPlayerContainer.style.display = "none";
+  document.body.appendChild(ytPlayerContainer);
+
   const musicContainer = document.createElement("div");
   musicContainer.className = "music-container";
   musicContainer.style.display = "none";
-  musicContainer.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=Y6w5bCW9yj5JQBEY&amp;list=PL8BGTnJm7HQgTcfVZncWOuLbim8R3_CdM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+  musicContainer.innerHTML = `
+    <button id="audio-prev" class="audio-prev" title="Previous">⏮️</button>
+    <button id="audio-play-pause" class="audio-play-pause" title="Play/Pause">▶️</button>
+    <button id="audio-next" class="audio-next" title="Next">⏭️</button>
+  `;
   document.body.appendChild(musicContainer);
 
-  // Handle music toggle click to show/hide player
+  let ytPlayer;
+
+  window.onYouTubeIframeAPIReady = () => {
+    ytPlayer = new YT.Player("youtube-player", {
+      height: "0",
+      width: "0",
+      playerVars: {
+        listType: "playlist",
+        list: "PL8BGTnJm7HQgTcfVZncWOuLbim8R3_CdM",
+        autoplay: 0,
+      },
+      events: {
+        onReady: (e) => { e.target.playVideo(); },
+        onStateChange: (e) => {
+          const btn = document.getElementById("audio-play-pause");
+          if (e.data === YT.PlayerState.PLAYING) {
+            btn.textContent = "⏸️";
+          } else {
+            btn.textContent = "▶️";
+          }
+        },
+      },
+    });
+  };
+
   musicToggle.addEventListener("click", () => {
     if (musicContainer.style.display === "none") {
-      musicContainer.style.display = "block";
+      musicContainer.style.display = "flex";
+      ytPlayerContainer.style.display = "block";
+      if (!window.YT) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(tag);
+      } else if (!ytPlayer) {
+        window.onYouTubeIframeAPIReady();
+      }
+      // Auto-play when opening
+      if (ytPlayer && ytPlayer.playVideo) {
+        ytPlayer.playVideo();
+      }
     } else {
       musicContainer.style.display = "none";
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (e.target.id === "audio-play-pause" && ytPlayer) {
+      const state = ytPlayer.getPlayerState();
+      if (state === YT.PlayerState.PLAYING) {
+        ytPlayer.pauseVideo();
+      } else {
+        ytPlayer.playVideo();
+      }
+    } else if (e.target.id === "audio-prev" && ytPlayer) {
+      ytPlayer.previousVideo();
+    } else if (e.target.id === "audio-next" && ytPlayer) {
+      ytPlayer.nextVideo();
     }
   });
 
