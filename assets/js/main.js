@@ -30,7 +30,29 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-  
+
+  // Music toggle button
+  const musicToggle = document.createElement("button");
+  musicToggle.textContent = "Toggle Music";
+  musicToggle.className = "music-toggle";
+  document.body.appendChild(musicToggle);
+
+  // Music player container with YouTube playlist embed
+  const musicContainer = document.createElement("div");
+  musicContainer.className = "music-container";
+  musicContainer.style.display = "none";
+  musicContainer.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=Y6w5bCW9yj5JQBEY&amp;list=PL8BGTnJm7HQgTcfVZncWOuLbim8R3_CdM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+  document.body.appendChild(musicContainer);
+
+  // Handle music toggle click to show/hide player
+  musicToggle.addEventListener("click", () => {
+    if (musicContainer.style.display === "none") {
+      musicContainer.style.display = "block";
+    } else {
+      musicContainer.style.display = "none";
+    }
+  });
+
   // GSAP animation for posts and post list items
   gsap.from(".post, .post-list > li", { 
     opacity: 0, 

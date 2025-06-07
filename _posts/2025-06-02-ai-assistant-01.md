@@ -25,7 +25,7 @@ some stuff is probably faster to just do by hand, but having an ai bang it all o
 - **gmail:** reads and writes my emails (could be risky if i’m not careful 🙃)
 - **calendar:** creates google calendar events for me—i just say stuff like “next week monday, tuesday, and saturday from 14:30 to 00:15” and it adds them all.
 - **todo app:** hooks into things for adding and editing tasks the lazy way (by talking).
-- **cover letter generator:** throw it a job ad and it whips up a cover letter in google docs, using my own style, past references, cv, etc.
+- **cover letter generator:** throw it a job ad and it whips up a print ready cover letter in google docs, using my own style, past references, cv, etc.
 - **personal finances:** tracks and updates my finances with its own little database.
 - **transaction tracking:** i send a receipt photo and it parses out items and the payment total.
 
