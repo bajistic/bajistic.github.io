@@ -3,6 +3,15 @@
   margin: 20px 0;
 }
 
+.post-content hr {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+body.dark .post-content hr {
+  border-top-color: rgba(255,255,255,0.1);
+}
+
 .centered-video {
   display: block;
   margin: 0 auto;
