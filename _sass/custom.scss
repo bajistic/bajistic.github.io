@@ -31,3 +31,28 @@ body.dark .post-content hr {
   // border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Header navigation spacing - desktop only */
+@media screen and (min-width: 601px) {
+  .site-nav .nav-list li:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+/* Reset mobile menu spacing and fix clickability */
+@media screen and (max-width: 600px) {
+  .site-nav .nav-list {
+    li {
+      margin-right: 0 !important;
+      position: relative;
+      z-index: 1000;
+    }
+    
+    .page-link {
+      position: relative;
+      z-index: 1001;
+      width: 100%;
+      display: block !important;
+    }
+  }
+}
