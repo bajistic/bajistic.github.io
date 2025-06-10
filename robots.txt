@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Sitemap: https://bajistic.xyz/sitemap.xml
+
+# Specific instructions for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
