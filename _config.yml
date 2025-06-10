@@ -29,6 +29,14 @@ twitter_username: bazinga970
 github_username:  bajistic
 instagram_username: bayar6ileg
 
+# SEO settings (not displayed on site)
+author:
+  name: Bayarbileg Bayarsaikhan
+  twitter: bazinga970
+
+# Additional SEO metadata
+keywords: "Bayarbileg Bayarsaikhan, bajistic, AI systems, technology blog, entrepreneurship"
+
 # Build settings
 theme: minima
 sass:
