@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   navigating latent landscapes. techno-optimist building AI systems.
   life, entrepreneurship, wealth-building, philosophy. anything i write here is obviously my own opinion  
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://bajistic.xyz" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://blog.bajistic.xyz" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: bazinga970
 github_username:  bajistic
 instagram_username: bayar6ileg
