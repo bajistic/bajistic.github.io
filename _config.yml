@@ -49,8 +49,11 @@ plugins:
 
 markdown: kramdown
 kramdown:
-  input: GFM  # GitHub-Flavored Markdown
+  input: GFM
   hard_wrap: false
+
+show_excerpts: true
+excerpt_separator: "\n\n"
 
 # Google Analytics
 google_analytics: G-7JGDQ3F936

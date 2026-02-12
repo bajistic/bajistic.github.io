@@ -3,17 +3,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
-  <!-- Additional SEO meta tags -->
   <meta name="author" content="Bayarbileg Bayarsaikhan">
   <meta name="keywords" content="Bayarbileg Bayarsaikhan, bajistic, AI systems, technology blog, entrepreneurship, machine learning">
-  <!-- Bing Webmaster Tools -->
   <meta name="msvalidate.01" content="DE57D0B81CAA19FC00DF4AEC5B3C8AC1">
-  <!-- DuckDuckGo and other search engines -->
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
   <meta name="bingbot" content="index, follow">
   <meta name="duckduckbot" content="index, follow">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap">
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
@@ -21,17 +20,13 @@
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
   {%- include google-analytics.html -%}
   {%- endif -%}
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7JGDQ3F936"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-7JGDQ3F936');
   </script>
-  
-  <!-- JSON-LD structured data for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,16 +39,9 @@
       "https://instagram.com/bayar6ileg"
     ],
     "jobTitle": "AI Systems Engineer",
-    "description": "Techno-optimist building AI systems. Writing about life, entrepreneurship, wealth-building, and philosophy.",
-    "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Entrepreneurship", "Technology", "Philosophy"],
-    "alumniOf": {
-      "@type": "Organization",
-      "name": "Technology"
-    }
+    "description": "Techno-optimist building AI systems. Writing about life, entrepreneurship, wealth-building, and philosophy."
   }
   </script>
-  
-  <!-- Open Graph tags for better social/search engine visibility -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="bajistic">
   <meta property="og:author" content="Bayarbileg Bayarsaikhan">

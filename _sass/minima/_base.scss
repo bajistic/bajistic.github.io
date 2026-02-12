@@ -1,5 +1,5 @@
 /**
- * Reset some basic elements
+ * Reset
  */
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
@@ -7,8 +7,6 @@ dl, dd, ol, ul, figure {
   margin: 0;
   padding: 0;
 }
-
-
 
 /**
  * Basic styling
@@ -18,20 +16,15 @@ body {
   color: $text-color;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
-  -webkit-font-feature-settings: "kern" 1;
-     -moz-font-feature-settings: "kern" 1;
-       -o-font-feature-settings: "kern" 1;
-          font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
   font-kerning: normal;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-
-
 /**
- * Set `margin-bottom` to maintain vertical rhythm
+ * Vertical rhythm
  */
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
@@ -40,16 +33,9 @@ ul, ol, dl, figure,
   margin-bottom: $spacing-unit * 0.5;
 }
 
-
-
-/**
- * `main` element
- */
 main {
-  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+  display: block;
 }
-
-
 
 /**
  * Images
@@ -59,20 +45,15 @@ img {
   vertical-align: middle;
 }
 
-
-
-/**
- * Figures
- */
 figure > img {
   display: block;
 }
 
 figcaption {
+  font-family: $font-mono;
   font-size: $small-font-size;
+  color: $grey-color;
 }
-
-
 
 /**
  * Lists
@@ -88,23 +69,23 @@ li {
   }
 }
 
-
-
 /**
- * Headings
+ * Headings — serif, bold
  */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $base-font-weight;
+  font-family: $font-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-
-
 /**
- * Links
+ * Links — underlined, accent color
  */
 a {
   color: $brand-color;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 
   &:visited {
     color: darken($brand-color, 15%);
@@ -112,54 +93,47 @@ a {
 
   &:hover {
     color: $text-color;
-    text-decoration: underline;
   }
 
   .social-media-list &:hover {
     text-decoration: none;
-
-    .username {
-      text-decoration: underline;
-    }
+    .username { text-decoration: underline; }
   }
 }
 
-
 /**
- * Blockquotes
+ * Blockquotes — thick left border, raw
  */
 blockquote {
   color: $grey-color;
-  border-left: 4px solid $grey-color-light;
-  padding-left: $spacing-unit * 0.5;
-  @include relative-font-size(1.125);
-  letter-spacing: -1px;
-  font-style: italic;
+  border-left: 4px solid $text-color;
+  padding-left: $spacing-unit * 0.75;
+  @include relative-font-size(1.05);
+  font-style: normal;
 
   > :last-child {
     margin-bottom: 0;
   }
 }
 
-
-
 /**
- * Code formatting
+ * Code — monospace, bordered
  */
 pre,
 code {
-  @include relative-font-size(0.9375);
+  font-family: $font-mono;
+  @include relative-font-size(0.85);
   border: 1px solid $grey-color-light;
-  border-radius: 3px;
-  background-color: #eef;
+  border-radius: 0;
+  background-color: #f5f5f5;
 }
 
 code {
-  padding: 1px 5px;
+  padding: 2px 6px;
 }
 
 pre {
-  padding: 8px 12px;
+  padding: 16px 20px;
   overflow-x: auto;
 
   > code {
@@ -169,14 +143,20 @@ pre {
   }
 }
 
-
+/**
+ * Horizontal rules
+ */
+hr {
+  border: none;
+  border-top: $border-width solid $text-color;
+  margin: $spacing-unit * 1.5 0;
+}
 
 /**
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-  max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
+  max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
   margin-right: auto;
   margin-left: auto;
   padding-right: $spacing-unit;
@@ -184,14 +164,11 @@ pre {
   @extend %clearfix;
 
   @include media-query($on-laptop) {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+    max-width: calc(#{$content-width} - (#{$spacing-unit}));
     padding-right: $spacing-unit * 0.5;
     padding-left: $spacing-unit * 0.5;
   }
 }
-
-
 
 /**
  * Clearfix
@@ -202,19 +179,16 @@ pre {
   clear: both;
 }
 
-
-
 /**
  * Icons
  */
-
 .svg-icon {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    fill: #{$grey-color};
-    padding-right: 5px;
-    vertical-align: text-top;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  fill: #{$grey-color};
+  padding-right: 5px;
+  vertical-align: text-top;
 }
 
 .social-media-list {
@@ -223,32 +197,38 @@ pre {
   }
 }
 
-
-
 /**
- * Tables
+ * Tables — thick borders, no alternating
  */
 table {
   margin-bottom: $spacing-unit;
   width: 100%;
   text-align: $table-text-align;
-  color: lighten($text-color, 18%);
+  color: $text-color;
   border-collapse: collapse;
-  border: 1px solid $grey-color-light;
-  tr {
-    &:nth-child(even) {
-      background-color: lighten($grey-color-light, 6%);
-    }
-  }
+  border: $border-width solid $text-color;
+
   th, td {
-    padding: ($spacing-unit * 0.3333333333) ($spacing-unit * 0.5);
+    padding: ($spacing-unit * 0.3) ($spacing-unit * 0.5);
   }
+
   th {
-    background-color: lighten($grey-color-light, 3%);
-    border: 1px solid darken($grey-color-light, 4%);
-    border-bottom-color: darken($grey-color-light, 12%);
+    font-family: $font-mono;
+    font-size: $small-font-size;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: $border-width solid $text-color;
   }
+
   td {
-    border: 1px solid $grey-color-light;
+    border-bottom: 1px solid $grey-color-light;
   }
+}
+
+/**
+ * Selection
+ */
+::selection {
+  background: $accent-color;
+  color: #fff;
 }

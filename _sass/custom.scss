@@ -1,15 +1,9 @@
+/**
+ * Video containers
+ */
 .video-container {
   text-align: center;
-  margin: 20px 0;
-}
-
-.post-content hr {
-  border: none;
-  border-top: 1px solid rgba(0,0,0,0.05);
-}
-
-body.dark .post-content hr {
-  border-top-color: rgba(255,255,255,0.1);
+  margin: $spacing-unit 0;
 }
 
 .centered-video {
@@ -17,42 +11,18 @@ body.dark .post-content hr {
   margin: 0 auto;
   max-width: 100%;
   height: auto;
-  background-color: #000; /* Black background for video player */
+  background-color: #000;
 }
 
-/* Ensure poster image is visible */
-.centered-video[poster] {
-  object-fit: cover; /* Ensures poster fills the video area */
+/**
+ * Post content HR
+ */
+.post-content hr {
+  border: none;
+  border-top: $border-width solid $text-color;
+  margin: $spacing-unit * 1.5 0;
 }
 
-/* Optional: Add a subtle border or shadow for visual appeal */
-.centered-video {
-  // border: 1px solid #ddd;
-  // border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Header navigation spacing - desktop only */
-@media screen and (min-width: 601px) {
-  .site-nav .nav-list li:not(:last-child) {
-    margin-right: 20px;
-  }
-}
-
-/* Reset mobile menu spacing and fix clickability */
-@media screen and (max-width: 600px) {
-  .site-nav .nav-list {
-    li {
-      margin-right: 0 !important;
-      position: relative;
-      z-index: 1000;
-    }
-    
-    .page-link {
-      position: relative;
-      z-index: 1001;
-      width: 100%;
-      display: block !important;
-    }
-  }
+body.dark .post-content hr {
+  border-top-color: #333;
 }

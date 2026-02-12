@@ -1,49 +1,44 @@
 @charset "utf-8";
 
-// Define defaults for each variable.
+// ============================================
+// MINIMAL-BRUTALIST THEME
+// ============================================
 
-// 2025 Modern Color Palette
-$base-color:       #007bff !default; // Vibrant blue accent
-$secondary-color:  #00e5ff !default; // Cyan secondary accent
-$accent-color:     #826fff !default; // Purple accent
-$success-color:    #00d68f !default; // Success green
+// Color Palette — monochrome + one accent
+$accent-color:     #0000ff !default;
+$accent-hover:     #0000cc !default;
+$accent-dark:      #4d4dff !default;
 
-// Metallic Gradients
-$metal-gradient:   linear-gradient(145deg, #e6e6e6, #cccccc) !default;
-$metal-gradient-dark: linear-gradient(145deg, #2a3849, #17233a) !default;
-$metal-shadow:     0 5px 15px rgba(0, 0, 0, 0.1) !default;
+// Typography
+$font-serif:       Georgia, 'Times New Roman', Times, serif !default;
+$font-sans:        Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !default;
+$font-mono:        'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace !default;
 
-$base-font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$base-font-size:   16px !default;
+$base-font-family: $font-sans !default;
+$base-font-size:   17px !default;
 $base-font-weight: 400 !default;
-$small-font-size:  $base-font-size * 0.875 !default;
-$base-line-height: 1.65 !default; // Improved line height for readability
+$small-font-size:  $base-font-size * 0.8 !default;
+$base-line-height: 1.7 !default;
 
-$spacing-unit:     30px !default;
+$spacing-unit:     32px !default;
 
-$text-color:       #111 !default;
-$background-color: #fdfdfd !default;
-$brand-color:      $base-color !default;
+$text-color:       #000 !default;
+$background-color: #fff !default;
+$brand-color:      $accent-color !default;
 
-$grey-color:       #828282 !default;
-$grey-color-light: lighten($grey-color, 40%) !default;
-$grey-color-dark:  darken($grey-color, 25%) !default;
+$grey-color:       #767676 !default;
+$grey-color-light: #e0e0e0 !default;
+$grey-color-dark:  #333 !default;
+
+$border-color:     #000 !default;
+$border-width:     2px !default;
 
 $table-text-align: left !default;
 
-// Width of the content area
-$content-width:    800px !default;
-
+$content-width:    720px !default;
 $on-palm:          600px !default;
-$on-laptop:        800px !default;
+$on-laptop:        720px !default;
 
-// Use media queries like this:
-// @include media-query($on-palm) {
-//   .wrapper {
-//     padding-right: $spacing-unit / 2;
-//     padding-left: $spacing-unit / 2;
-//   }
-// }
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;
@@ -54,18 +49,7 @@ $on-laptop:        800px !default;
   font-size: $base-font-size * $ratio;
 }
 
-// 3D Effects and Animations
-@keyframes fade-in { 
-  from { opacity: 0; } 
-  to { opacity: 1; } 
-}
-
-// Smooth transitions for theme changes
-.theme-transition {
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-// Import partials.
+// Import partials
 @import
   "minima/base",
   "minima/layout",
@@ -73,191 +57,178 @@ $on-laptop:        800px !default;
   "custom"
 ;
 
-// Dark mode
+// ============================================
+// DARK MODE
+// ============================================
 body.dark {
-  background-color: #121212;
-  color: #f0f0f0;
-  
-  .site-header, .page-content, .site-footer {
-    background-color: #121212;
-    color: #f0f0f0;
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+
+  .site-header {
+    background-color: #0a0a0a;
+    border-bottom-color: #333;
   }
-  
+
+  .page-content, .site-footer {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+  }
+
   .site-footer {
-    border-top-color: rgba(255,255,255,0.1);
+    border-top-color: #333;
   }
-  
-  .site-title, .site-nav .page-link, h1, h2, h3, h4, h5, h6 {
-    color: #f0f0f0;
-  }
-  
+
   .site-title, .site-title:visited {
-    color: #ffffff;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    color: #fff;
   }
-  
-  .post-list > li, .post {
-    color: #f0f0f0;
-    border-bottom-color: rgba(255,255,255,0.1);
+
+  .site-nav .page-link, h1, h2, h3, h4, h5, h6 {
+    color: #e0e0e0;
   }
-  
+
+  .post-list > li {
+    border-bottom-color: #333;
+  }
+
   a {
-    color: lighten($base-color, 20%);
-    
-    &:visited {
-      color: lighten($base-color, 10%);
-    }
+    color: $accent-dark;
+    &:visited { color: darken($accent-dark, 10%); }
   }
-  
-  .section {
-    background: #242424;
-    color: #f0f0f0;
+
+  .post-link {
+    color: #e0e0e0;
+    &:hover { color: $accent-dark; }
   }
-  
-  .button, .btn-metal {
-    background: linear-gradient(#303030, #202020);
-    border-color: #404040;
-    color: #f0f0f0;
-    
-    &:hover {
-      background: linear-gradient(#353535, #252525);
-    }
-  }
-  
-  // Fix code blocks in dark mode
+
   pre, code {
-    background-color: #2a2a2a;
-    border-color: #3a3a3a;
-    color: #e0e0e0;
-  }
-  
-  blockquote {
-    color: #aaaaaa;
-    border-left-color: lighten($base-color, 20%);
     background-color: #1a1a1a;
+    border-color: #333;
+    color: #d4d4d4;
   }
-  
+
+  blockquote {
+    color: #999;
+    border-left-color: #555;
+  }
+
   table {
-    color: #e0e0e0;
-    border-color: #3a3a3a;
-    
-    th {
-      background-color: #2a2a2a;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #222222;
-    }
-    
-    td {
-      border-color: #3a3a3a;
-    }
+    color: #d4d4d4;
+    border-color: #333;
+    th { background-color: #1a1a1a; border-color: #333; }
+    td { border-color: #333; }
   }
-  
-  
+
+  .post-meta { color: #777; }
+  .post-excerpt { color: #aaa; }
+
+  hr, .post-content hr {
+    border-top-color: #333;
+  }
+
   .site-nav {
-    background-color: #121212;
-    border-color: #3a3a3a;
-
-    .menu-icon > svg path {
-      fill: #f0f0f0;
-    }
-
-    .nav-list {
-      background-color: #121212;
-      border-color: #3a3a3a;
-    }
+    background-color: #0a0a0a;
+    border-color: #333;
+    .menu-icon > svg path { fill: #e0e0e0; }
+    .nav-list { background-color: #0a0a0a; border-color: #333; }
   }
-  
-  .footer-col-wrapper {
-    color: #aaaaaa;
+
+  .footer-col-wrapper { color: #777; }
+  .svg-icon { fill: #777; }
+
+  .theme-toggle {
+    background: #1a1a1a;
+    border-color: #555;
+    color: #e0e0e0;
+    &::before { content: "\263E"; }
+    &:hover { background: #2a2a2a; }
   }
-  
-  .svg-icon {
-    fill: #aaaaaa;
+
+  .music-toggle {
+    background: #1a1a1a;
+    border-color: #555;
+    color: #e0e0e0;
+    &:hover { background: #2a2a2a; }
+  }
+
+  .music-container {
+    background: #1a1a1a;
+    border-color: #555;
+    color: #e0e0e0;
   }
 }
 
-// Theme toggle button
+// ============================================
+// THEME TOGGLE
+// ============================================
 .theme-toggle {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(#fff, #eee);
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  bottom: 24px;
+  right: 24px;
+  background: #fff;
+  border: $border-width solid #000;
+  border-radius: 0;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0;
-  
+  transition: background-color 0.2s ease;
+
   &::before {
-    content: "☀️";
-    font-size: 24px;
+    content: "\2600";
+    font-size: 20px;
   }
-  
-  body.dark & {
-    background: linear-gradient(#303030, #202020);
-    border-color: #404040;
-    
-    &::before {
-      content: "🌙";
-    }
-  }
+
+  &:hover { background: #f0f0f0; }
 }
-// Music toggle button
+
+// ============================================
+// MUSIC TOGGLE
+// ============================================
 .music-toggle {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background: linear-gradient(#fff, #eee);
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  bottom: 76px;
+  right: 24px;
+  background: #fff;
+  border: $border-width solid #000;
+  border-radius: 0;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0;
+  transition: background-color 0.2s ease;
 
   &::before {
-    content: "🎵";
-    font-size: 24px;
+    content: "\266B";
+    font-size: 20px;
   }
 
-  body.dark & {
-    background: linear-gradient(#303030, #202020);
-    border-color: #404040;
-  }
+  &:hover { background: #f0f0f0; }
 }
 
-// Music player container
+// ============================================
+// MUSIC PLAYER CONTAINER
+// ============================================
 .music-container {
   position: fixed;
-  bottom: 140px;
-  right: 20px;
+  bottom: 128px;
+  right: 24px;
   z-index: 1001;
   display: none;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
-  background: linear-gradient(#fff, #eee);
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  body.dark & {
-    background: linear-gradient(#303030, #202020);
-    border-color: #404040;
-  }
+  gap: 8px;
+  background: #fff;
+  border: $border-width solid #000;
+  border-radius: 0;
+  padding: 8px 12px;
 
   .audio-prev,
   .audio-play-pause,
@@ -265,98 +236,16 @@ body.dark {
     background: transparent;
     border: none;
     color: inherit;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
+    padding: 4px;
+    &:hover { opacity: 0.6; }
   }
 }
 
-// Modern 2025 Styling Enhancements
-.post-list > li, .post {
-  transition: color 0.3s ease, transform 0.3s ease;
-  border-radius: 0;
-  padding: 0 0 20px 0;
-  margin-bottom: 30px;
-  opacity: 0;
-  animation: fade-in 1s forwards;
-  display: block;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  
-  &:last-child {
-    border-bottom: none;
-  }
-  
-  &:hover { 
-    transform: translateY(-3px);
-  }
-}
-
-// Metal button style for links
-.btn-metal {
-  display: inline-block;
-  padding: 8px 16px;
-  background: $metal-gradient;
-  border-radius: 8px;
-  box-shadow: $metal-shadow;
-  color: $text-color;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-}
-
-// Bento Grid Layout
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-@media (max-width: 768px) {
-  .bento-grid { 
-    grid-template-columns: 1fr; 
-  }
-}
-
-.section { 
-  padding: 20px; 
-  background: #f0f0f0; 
-  border-radius: 10px;
-  box-shadow: $metal-shadow;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  }
-}
-
-// Modern Skeuomorphic Button
-.button {
-  background: linear-gradient(#fff, #eee);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px 20px;
-  display: inline-block;
-  font-weight: 500;
-  color: $text-color;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background: linear-gradient(#f8f8f8, #e8e8e8);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
-    transform: translateY(-2px);
-  }
-  
-  &:active {
-    background: linear-gradient(#e8e8e8, #f8f8f8);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    transform: translateY(1px);
-  }
+// ============================================
+// SMOOTH TRANSITIONS
+// ============================================
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

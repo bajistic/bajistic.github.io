@@ -13,7 +13,7 @@ maybe 1% is handwritten by me.
 
 some stuff is probably faster to just do by hand, but having an ai bang it all out at typing speed is just awesome.
 
-<img src="/assets/images/tonystark-jarvis.GIF" width="300" alt="Tony Stark and JARVIS" style="display: block; margin: 0 auto;">
+<img src="{{ site.baseurl }}/assets/images/tonystark-jarvis.GIF" width="300" alt="Tony Stark and JARVIS" style="display: block; margin: 0 auto;">
 
 > learning and applying random knowledge is super easy with ai these days.  
 > you really don’t need to be a pro at any specific software—just understanding the basics of good software is enough.  
@@ -30,14 +30,14 @@ some stuff is probably faster to just do by hand, but having an ai bang it all o
 - **transaction tracking:** i send a receipt photo and it parses out items and the payment total.
 
 <div class="video-container">
-  <video width="360" height="640" controls class="centered-video" poster="/assets/videos/gcal_h264_thumbnail.jpg">
-    <source src="/assets/videos/gcal_h264.mp4" type="video/mp4">
+  <video width="360" height="640" controls class="centered-video" poster="{{ site.baseurl }}/assets/videos/gcal_h264_thumbnail.jpg">
+    <source src="{{ site.baseurl }}/assets/videos/gcal_h264.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </div>
 <div class="video-container">
-  <video width="360" height="640" controls class="centered-video" poster="/assets/videos/letter_h264_thumbnail.jpg">
-    <source src="/assets/videos/letter_h264.mp4" type="video/mp4">
+  <video width="360" height="640" controls class="centered-video" poster="{{ site.baseurl }}/assets/videos/letter_h264_thumbnail.jpg">
+    <source src="{{ site.baseurl }}/assets/videos/letter_h264.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 </div>

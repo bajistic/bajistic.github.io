@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   toggle.textContent = "Toggle Theme";
   toggle.className = "theme-toggle";
   document.body.appendChild(toggle);
-  
+
   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   const savedTheme = getCookie("theme");
   if (savedTheme === "dark") {
@@ -14,8 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else if (mediaQuery.matches) {
     document.body.classList.add("dark");
   }
-  
-  // Handle theme toggle click
+
   toggle.addEventListener("click", () => {
     const isDark = document.body.classList.toggle("dark");
     document.cookie = "theme=" + (isDark ? "dark" : "light");
@@ -31,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Music player
   const musicToggle = document.createElement("button");
   musicToggle.className = "music-toggle";
   document.body.appendChild(musicToggle);
@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
   musicContainer.className = "music-container";
   musicContainer.style.display = "none";
   musicContainer.innerHTML = `
-    <button id="audio-prev" class="audio-prev" title="Previous">⏮️</button>
-    <button id="audio-play-pause" class="audio-play-pause" title="Play/Pause">▶️</button>
-    <button id="audio-next" class="audio-next" title="Next">⏭️</button>
+    <button id="audio-prev" class="audio-prev" title="Previous">\u23EE</button>
+    <button id="audio-play-pause" class="audio-play-pause" title="Play/Pause">\u25B6</button>
+    <button id="audio-next" class="audio-next" title="Next">\u23ED</button>
   `;
   document.body.appendChild(musicContainer);
 
@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
         onStateChange: (e) => {
           const btn = document.getElementById("audio-play-pause");
           if (e.data === YT.PlayerState.PLAYING) {
-            btn.textContent = "⏸️";
+            btn.textContent = "\u23F8";
           } else {
-            btn.textContent = "▶️";
+            btn.textContent = "\u25B6";
           }
         },
       },
@@ -86,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (!ytPlayer) {
         window.onYouTubeIframeAPIReady();
       }
-      // Auto-play when opening
       if (ytPlayer && ytPlayer.playVideo) {
         ytPlayer.playVideo();
       }
@@ -110,36 +109,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // GSAP animation for posts and post list items
-  gsap.from(".post, .post-list > li", { 
-    opacity: 0, 
-    y: 50, 
-    stagger: 0.2, 
-    duration: 1,
-    ease: 'back.out(1.2)'
-  });
-  
-  // Add interactive hover effects to buttons
-  const buttons = document.querySelectorAll('.button, .btn-metal');
-  
-  buttons.forEach(button => {
-    button.addEventListener('mouseenter', () => {
-      gsap.to(button, {
-        scale: 1.05,
-        duration: 0.2
-      });
-    });
-    
-    button.addEventListener('mouseleave', () => {
-      gsap.to(button, {
-        scale: 1,
-        duration: 0.2
-      });
-    });
+  // GSAP — snappy entrance animation
+  gsap.from(".post-list > li, .post", {
+    opacity: 0,
+    y: 30,
+    stagger: 0.1,
+    duration: 0.6,
+    ease: "power2.out"
   });
 });
 
-// Helper function to get cookie value by name
 function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
