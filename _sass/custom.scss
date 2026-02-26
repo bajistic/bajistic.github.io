@@ -1,4 +1,32 @@
 /**
+ * Metaball ASCII background
+ */
+:root {
+  --metaball-color: #111111;  /* light mode: dark digits on white */
+}
+
+body.dark {
+  --metaball-color: #ffffff;  /* dark mode: white digits on black */
+}
+
+#metaball-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;             /* subtle — tweak this (0.0–1.0) */
+}
+
+/* Make sure all content sits above the canvas */
+body > *:not(#metaball-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+/**
  * Video containers
  */
 .video-container {

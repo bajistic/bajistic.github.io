@@ -5,6 +5,8 @@
 
   <body class="theme-transition">
 
+    <canvas id="metaball-bg" aria-hidden="true"></canvas>
+
     {%- include header.html -%}
 
     <main class="page-content" aria-label="Content">
@@ -14,6 +16,8 @@
     </main>
 
     {%- include footer.html -%}
+
+    <script src="{{ "/assets/js/metaball-bg.js" | relative_url }}" defer></script>
 
   </body>
 
