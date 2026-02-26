@@ -148,6 +148,17 @@
     }
   }, { passive: true });
 
+  // Click — bigger burst ripple
+  document.addEventListener('click', function (e) {
+    ripples.push({
+      x: e.clientX, y: e.clientY,
+      r: 10,
+      maxR: 240,
+      life: 1.0,
+      decay: 0.012,
+    });
+  });
+
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) cancelAnimationFrame(animId);
     else loop();
