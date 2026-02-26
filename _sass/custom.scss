@@ -1,12 +1,72 @@
 /**
+ * Dark base — always-on so metaball reads as the background
+ */
+body {
+  background-color: #080808 !important;
+  color: #e0e0e0 !important;
+}
+
+.site-header {
+  background-color: #080808 !important;
+  border-bottom-color: #222 !important;
+}
+
+.site-title,
+.site-title:visited,
+.site-nav .page-link,
+h1, h2, h3, h4, h5, h6 {
+  color: #f0f0f0 !important;
+}
+
+.page-content,
+.site-footer {
+  background-color: transparent !important;
+  color: #e0e0e0 !important;
+}
+
+.site-footer { border-top-color: #222 !important; }
+.footer-col-wrapper { color: #666 !important; }
+.svg-icon { fill: #666 !important; }
+.post-meta { color: #666 !important; }
+.post-excerpt { color: #999 !important; }
+.post-list > li { border-bottom-color: #222 !important; }
+
+a { color: #4d4dff !important; }
+a:visited { color: #3a3ab8 !important; }
+.post-link { color: #e0e0e0 !important; }
+.post-link:hover { color: #4d4dff !important; }
+
+pre, code {
+  background-color: #111 !important;
+  border-color: #333 !important;
+  color: #d4d4d4 !important;
+}
+
+blockquote {
+  color: #888 !important;
+  border-left-color: #444 !important;
+}
+
+.theme-toggle {
+  background: #111 !important;
+  border-color: #444 !important;
+  color: #e0e0e0 !important;
+  &::before { content: "\263E" !important; }
+  &:hover { background: #1a1a1a !important; }
+}
+
+.music-toggle,
+.music-container {
+  background: #111 !important;
+  border-color: #444 !important;
+  color: #e0e0e0 !important;
+}
+
+/**
  * Metaball ASCII background
  */
 :root {
-  --metaball-color: #111111;  /* light mode: dark digits on white */
-}
-
-body.dark {
-  --metaball-color: #ffffff;  /* dark mode: white digits on black */
+  --metaball-color: #ffffff;
 }
 
 #metaball-bg {
@@ -17,10 +77,10 @@ body.dark {
   height: 100vh;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.18;             /* subtle — tweak this (0.0–1.0) */
+  opacity: 0.28;
 }
 
-/* Make sure all content sits above the canvas */
+/* All content above canvas */
 body > *:not(#metaball-bg) {
   position: relative;
   z-index: 1;
@@ -47,10 +107,149 @@ body > *:not(#metaball-bg) {
  */
 .post-content hr {
   border: none;
-  border-top: $border-width solid $text-color;
+  border-top: $border-width solid #333;
   margin: $spacing-unit * 1.5 0;
 }
 
-body.dark .post-content hr {
-  border-top-color: #333;
+/**
+ * Music page
+ */
+.music-page {
+  max-width: 100%;
+}
+
+.spectrogram-canvas {
+  width: 100%;
+  height: 200px;
+  display: block;
+  border: 1px solid #333;
+  background: #0a0a0a;
+}
+
+.music-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  padding: 12px 0;
+  border-bottom: 1px solid #333;
+}
+
+.music-ctrl-btn {
+  background: none;
+  border: 1px solid #555;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px 12px;
+  line-height: 1;
+  color: #ddd;
+  transition: background 0.15s, color 0.15s;
+}
+
+.music-ctrl-btn:hover {
+  background: #ddd;
+  color: #000;
+}
+
+.music-ctrl-play {
+  font-size: 1.4rem;
+  padding: 6px 16px;
+}
+
+.music-track-info {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.music-player-embed {
+  margin-top: 16px;
+}
+
+.music-player-embed iframe {
+  max-width: 100%;
+  border: 1px solid #333;
+}
+
+/**
+ * Memes gallery
+ */
+.memes-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.memes-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #888;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  padding: 48px 0;
+}
+
+.memes-item {
+  overflow: hidden;
+  border: 1px solid #333;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.memes-item:hover {
+  transform: scale(1.02);
+}
+
+.memes-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.memes-lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.memes-lightbox.active { display: flex; }
+
+.memes-lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.memes-lightbox-close {
+  position: absolute;
+  top: 16px; right: 24px;
+  background: none; border: none;
+  color: #fff; font-size: 2.5rem;
+  cursor: pointer; line-height: 1;
+  z-index: 10000;
+}
+
+.memes-lightbox-close:hover { color: #ccc; }
+
+@media (max-width: 600px) {
+  .memes-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+  }
+
+  .memes-item img { height: 150px; }
+  .spectrogram-canvas { height: 140px; }
+  .music-controls { flex-wrap: wrap; }
+  .music-track-info { flex-basis: 100%; margin-top: 8px; }
 }
