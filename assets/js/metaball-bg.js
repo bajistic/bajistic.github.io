@@ -1,21 +1,19 @@
 /**
  * ASCII Metaball Background
- * Numeric distance-field effect — digits 0–9 represent proximity to drifting blobs
+ * Drifting blobs + mouse ripple effect
  */
 (function () {
   var canvas = document.getElementById('metaball-bg');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
 
-  // ── Config ────────────────────────────────────────────────────────────────
-  var FONT_SIZE  = 14;      // px per cell
+  var FONT_SIZE  = 14;
   var NUM_BLOBS  = 5;
   var SPEED      = 0.35;
   var THRESHOLD  = 1.0;
-  var DIGIT_COLOR = getComputedStyle(document.documentElement)
-                      .getPropertyValue('--metaball-color').trim() || '#ffffff';
 
-  var cols, rows, blobs, animId;
+  var cols, rows, blobs, ripples, animId;
+  var mouse = { x: -9999, y: -9999 };
 
   function getColor() {
     return getComputedStyle(document.documentElement)
@@ -39,6 +37,18 @@
         vy: (Math.random() - 0.5) * SPEED * 2,
       };
     });
+    ripples = [];
+  }
+
+  // Spawn a ripple at mouse position
+  function spawnRipple(x, y) {
+    ripples.push({
+      x: x, y: y,
+      r: 20,         // start small
+      maxR: 160,     // grow to this
+      life: 1.0,     // 1 = fresh, 0 = dead
+      decay: 0.018,  // fade speed
+    });
   }
 
   function updateBlobs() {
@@ -48,14 +58,35 @@
       if (b.x < -b.r || b.x > canvas.width  + b.r) b.vx *= -1;
       if (b.y < -b.r || b.y > canvas.height + b.r) b.vy *= -1;
     });
+
+    // Grow + fade ripples
+    for (var i = ripples.length - 1; i >= 0; i--) {
+      var rp = ripples[i];
+      rp.r    += (rp.maxR - rp.r) * 0.06;  // ease outward
+      rp.life -= rp.decay;
+      if (rp.life <= 0) ripples.splice(i, 1);
+    }
   }
 
   function field(px, py) {
     var sum = 0;
+
+    // Ambient blobs
     blobs.forEach(function (b) {
       var dx = px - b.x, dy = py - b.y;
       sum += (b.r * b.r) / ((dx * dx + dy * dy) || 0.0001);
     });
+
+    // Ripples: contribute a pulse that fades
+    ripples.forEach(function (rp) {
+      var dx = px - rp.x, dy = py - rp.y;
+      var d2 = (dx * dx + dy * dy) || 0.0001;
+      // Ring-shaped: strong near rp.r radius, weak inside/outside
+      var d  = Math.sqrt(d2);
+      var ring = Math.max(0, 1.0 - Math.abs(d - rp.r) / 40);
+      sum += ring * rp.life * 1.8;
+    });
+
     return sum;
   }
 
@@ -94,13 +125,32 @@
     animId = requestAnimationFrame(loop);
   }
 
-  // Pause when tab is hidden (performance)
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) {
-      cancelAnimationFrame(animId);
-    } else {
-      loop();
+  // Mouse ripple — throttled so we don't spawn 60/s
+  var lastRipple = 0;
+  var RIPPLE_INTERVAL = 80; // ms between spawns
+  document.addEventListener('mousemove', function (e) {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    var now = Date.now();
+    if (now - lastRipple > RIPPLE_INTERVAL) {
+      spawnRipple(e.clientX, e.clientY);
+      lastRipple = now;
     }
+  });
+
+  // Touch support
+  document.addEventListener('touchmove', function (e) {
+    var t = e.touches[0];
+    var now = Date.now();
+    if (now - lastRipple > RIPPLE_INTERVAL) {
+      spawnRipple(t.clientX, t.clientY);
+      lastRipple = now;
+    }
+  }, { passive: true });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) cancelAnimationFrame(animId);
+    else loop();
   });
 
   window.addEventListener('resize', resize);
