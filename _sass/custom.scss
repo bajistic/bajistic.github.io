@@ -25,11 +25,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-footer { border-top-color: #222 !important; }
-.footer-col-wrapper { color: #666 !important; }
-.svg-icon { fill: #666 !important; }
-.post-meta { color: #666 !important; }
-.post-excerpt { color: #999 !important; }
+.footer-col-wrapper { color: #b0b0b0 !important; }
+.svg-icon { fill: #b0b0b0 !important; }
+.post-meta { color: #b0b0b0 !important; }
+.post-excerpt { color: #c0c0c0 !important; }
 .post-list > li { border-bottom-color: #222 !important; }
+figcaption { color: #b0b0b0 !important; }
 
 a { color: #4d4dff !important; }
 a:visited { color: #3a3ab8 !important; }
@@ -43,7 +44,7 @@ pre, code {
 }
 
 blockquote {
-  color: #888 !important;
+  color: #bcbcbc !important;
   border-left-color: #444 !important;
 }
 
@@ -159,7 +160,7 @@ body > *:not(#metaball-bg) {
 .music-track-info {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.85rem;
-  color: #999;
+  color: #c0c0c0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -188,7 +189,7 @@ body > *:not(#metaball-bg) {
 .memes-empty {
   grid-column: 1 / -1;
   text-align: center;
-  color: #888;
+  color: #bcbcbc;
   font-family: "JetBrains Mono", monospace;
   font-size: 0.9rem;
   padding: 48px 0;
